@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,9 +12,12 @@
 		A4EAA7F424A0B41A005D2D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4EAA7F324A0B41A005D2D1F /* Assets.xcassets */; };
 		A4EAA7F724A0B41A005D2D1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4EAA7F624A0B41A005D2D1F /* Preview Assets.xcassets */; };
 		A4EAA7FA24A0B41A005D2D1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4EAA7F824A0B41A005D2D1F /* Main.storyboard */; };
+		A4EAA80324A0B53D005D2D1F /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EAA80224A0B53D005D2D1F /* StatusItemController.swift */; };
+		B93EC0512DD2656E99C7908F /* Pods_SimulatorUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC4EEA7CF83E71FB2307FBCC /* Pods_SimulatorUtils.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7938435DFA0D05674CEE4462 /* Pods-SimulatorUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimulatorUtils.debug.xcconfig"; path = "Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils.debug.xcconfig"; sourceTree = "<group>"; };
 		A4EAA7EC24A0B418005D2D1F /* SimulatorUtils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimulatorUtils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4EAA7EF24A0B418005D2D1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4EAA7F124A0B418005D2D1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,6 +26,9 @@
 		A4EAA7F924A0B41A005D2D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4EAA7FB24A0B41A005D2D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4EAA7FC24A0B41A005D2D1F /* SimulatorUtils.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimulatorUtils.entitlements; sourceTree = "<group>"; };
+		A4EAA80224A0B53D005D2D1F /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
+		AC4EEA7CF83E71FB2307FBCC /* Pods_SimulatorUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimulatorUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4725C79D252B183C5F9EB4 /* Pods-SimulatorUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimulatorUtils.release.xcconfig"; path = "Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93EC0512DD2656E99C7908F /* Pods_SimulatorUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +48,8 @@
 			children = (
 				A4EAA7EE24A0B418005D2D1F /* SimulatorUtils */,
 				A4EAA7ED24A0B418005D2D1F /* Products */,
+				D04FAF4E7786207A2BED39C6 /* Pods */,
+				C732007A3898D75DEC46E677 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				A4EAA7EF24A0B418005D2D1F /* AppDelegate.swift */,
+				A4EAA80224A0B53D005D2D1F /* StatusItemController.swift */,
 				A4EAA7F124A0B418005D2D1F /* ContentView.swift */,
 				A4EAA7F324A0B41A005D2D1F /* Assets.xcassets */,
 				A4EAA7F824A0B41A005D2D1F /* Main.storyboard */,
@@ -74,6 +84,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C732007A3898D75DEC46E677 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC4EEA7CF83E71FB2307FBCC /* Pods_SimulatorUtils.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D04FAF4E7786207A2BED39C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7938435DFA0D05674CEE4462 /* Pods-SimulatorUtils.debug.xcconfig */,
+				CE4725C79D252B183C5F9EB4 /* Pods-SimulatorUtils.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -81,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4EAA7FF24A0B41A005D2D1F /* Build configuration list for PBXNativeTarget "SimulatorUtils" */;
 			buildPhases = (
+				11B53B00D6998DC8B016B9D6 /* [CP] Check Pods Manifest.lock */,
 				A4EAA7E824A0B418005D2D1F /* Sources */,
 				A4EAA7E924A0B418005D2D1F /* Frameworks */,
 				A4EAA7EA24A0B418005D2D1F /* Resources */,
+				ECF0ACC9BB0951D1A992B7C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,6 +169,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		11B53B00D6998DC8B016B9D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SimulatorUtils-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECF0ACC9BB0951D1A992B7C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A4EAA7E824A0B418005D2D1F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -147,6 +218,7 @@
 			files = (
 				A4EAA7F224A0B418005D2D1F /* ContentView.swift in Sources */,
 				A4EAA7F024A0B418005D2D1F /* AppDelegate.swift in Sources */,
+				A4EAA80324A0B53D005D2D1F /* StatusItemController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,9 +351,11 @@
 		};
 		A4EAA80024A0B41A005D2D1F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7938435DFA0D05674CEE4462 /* Pods-SimulatorUtils.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SimulatorUtils/SimulatorUtils.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SimulatorUtils/Preview Content\"";
@@ -302,9 +376,11 @@
 		};
 		A4EAA80124A0B41A005D2D1F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE4725C79D252B183C5F9EB4 /* Pods-SimulatorUtils.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SimulatorUtils/SimulatorUtils.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SimulatorUtils/Preview Content\"";
