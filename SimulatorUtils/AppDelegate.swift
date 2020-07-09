@@ -24,19 +24,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
        let statusBar = NSStatusBar.system
         statusBarItem = statusBar.statusItem(
        withLength: NSStatusItem.squareLength)
-       statusBarItem.button?.title = "WIT Helper"
+       statusBarItem.button?.title = "WIT"
         
        let statusBarMenu = NSMenu(title: "WIT Status Bar Menu")
         
         statusBarMenu.addItem(
             withTitle: "Get SMS Code",
             action: #selector(AppDelegate.getSMS),
-            keyEquivalent: "")
+            keyEquivalent: "1")
 
         statusBarMenu.addItem(
             withTitle: "Clear User Token",
             action: #selector(AppDelegate.clearToken),
-            keyEquivalent: "")
+            keyEquivalent: "2")
+        
+        statusBarMenu.addItem(
+            withTitle: "Create Assesment",
+            action: #selector(AppDelegate.createAssesment),
+            keyEquivalent: "3")
+        statusBarMenu.addItem(NSMenuItem.separator())
+        
+        
+        statusBarMenu.addItem(
+        withTitle: "Quit",
+        action: #selector(AppDelegate.quit),
+        keyEquivalent: "q")
+        
        statusBarItem.menu = statusBarMenu
     }
     
@@ -44,26 +57,48 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("Get SMS Code")
         
         let response = showAlert(title:"SMS Code", information: "Type your UserID", hasInput: true)
-        print(response)
         
+        if(response as AnyObject !== "" as AnyObject)
+        {
+        //https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#introduction
         AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/internal/user/get_sms_code/\(response)")
                     .responseJSON { response in
-        //                https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#introduction
                         let jsonData = response.data
                         let json = try? JSONSerialization.jsonObject(with: jsonData!, options: []) as? [String: Any]
                         let smscode = json!["sms_verification_code"] as! NSNumber
-
-                        self.showAlert(title:"Your SMS Code", information: "\(smscode)", hasInput: false)
+                        
+                        self.copyToClipboard(value: "\(smscode)")
+                        self.showInfoAlert(title: "Sms Code Copied to Clipboard", information: "\(smscode)")
                     }
+        }
     }
 
     @objc func clearToken() {
-        print("Canceling your order :(")
+        print("clear Token")
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("clear Token", forType: .string)
+        // Read copied string
+//        NSPasteboard.general.string(forType: .string)
+
+        showInfoAlert(title: "Clear Token", information: "Clearing Token")
+
+    }
+    
+    @objc func createAssesment() {
+        print("Create Assessment")
+        
+    }
+    
+    @objc func quit() {
+        print("Quit App")
+        NSApplication.shared.terminate(self)
+        
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
     //let Insert code here to tear down your application
     }
+    
     
     func showAlert(title: String, information: String, hasInput: Bool) -> String
     {
@@ -85,6 +120,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return txt.stringValue
         }
         return ""
+    }
+    
+    func showInfoAlert(title: String, information: String) -> Void
+    {
+        let alert = NSAlert()
+        alert.messageText = title
+        alert.informativeText =  information
+        
+        alert.runModal()
+    }
+    
+    func copyToClipboard(value: String) -> Void {
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(value, forType: .string)
     }
     
 }
