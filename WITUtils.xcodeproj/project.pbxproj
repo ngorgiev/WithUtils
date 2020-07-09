@@ -13,12 +13,12 @@
 		A4EAA7F724A0B41A005D2D1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4EAA7F624A0B41A005D2D1F /* Preview Assets.xcassets */; };
 		A4EAA7FA24A0B41A005D2D1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4EAA7F824A0B41A005D2D1F /* Main.storyboard */; };
 		A4EAA80324A0B53D005D2D1F /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EAA80224A0B53D005D2D1F /* StatusItemController.swift */; };
-		B93EC0512DD2656E99C7908F /* Pods_SimulatorUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC4EEA7CF83E71FB2307FBCC /* Pods_SimulatorUtils.framework */; };
+		DBAB4EF71B495F7DE0BF5903 /* Pods_WITUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACED102395BD3904AFD29CFD /* Pods_WITUtils.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7938435DFA0D05674CEE4462 /* Pods-SimulatorUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimulatorUtils.debug.xcconfig"; path = "Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils.debug.xcconfig"; sourceTree = "<group>"; };
-		A4EAA7EC24A0B418005D2D1F /* SimulatorUtils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimulatorUtils.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4EAA7EC24A0B418005D2D1F /* WITUtils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WITUtils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4EAA7EF24A0B418005D2D1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4EAA7F124A0B418005D2D1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A4EAA7F324A0B41A005D2D1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -27,8 +27,10 @@
 		A4EAA7FB24A0B41A005D2D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4EAA7FC24A0B41A005D2D1F /* SimulatorUtils.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimulatorUtils.entitlements; sourceTree = "<group>"; };
 		A4EAA80224A0B53D005D2D1F /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
-		AC4EEA7CF83E71FB2307FBCC /* Pods_SimulatorUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimulatorUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACED102395BD3904AFD29CFD /* Pods_WITUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WITUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4725C79D252B183C5F9EB4 /* Pods-SimulatorUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimulatorUtils.release.xcconfig"; path = "Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils.release.xcconfig"; sourceTree = "<group>"; };
+		E17264BEAA2B695A5053C79D /* Pods-WITUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WITUtils.debug.xcconfig"; path = "Target Support Files/Pods-WITUtils/Pods-WITUtils.debug.xcconfig"; sourceTree = "<group>"; };
+		EF90F47A86B8C48B19EE345E /* Pods-WITUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WITUtils.release.xcconfig"; path = "Target Support Files/Pods-WITUtils/Pods-WITUtils.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B93EC0512DD2656E99C7908F /* Pods_SimulatorUtils.framework in Frameworks */,
+				DBAB4EF71B495F7DE0BF5903 /* Pods_WITUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +48,7 @@
 		A4EAA7E324A0B418005D2D1F = {
 			isa = PBXGroup;
 			children = (
-				A4EAA7EE24A0B418005D2D1F /* SimulatorUtils */,
+				A4EAA7EE24A0B418005D2D1F /* WITUTils */,
 				A4EAA7ED24A0B418005D2D1F /* Products */,
 				D04FAF4E7786207A2BED39C6 /* Pods */,
 				C732007A3898D75DEC46E677 /* Frameworks */,
@@ -56,12 +58,12 @@
 		A4EAA7ED24A0B418005D2D1F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A4EAA7EC24A0B418005D2D1F /* SimulatorUtils.app */,
+				A4EAA7EC24A0B418005D2D1F /* WITUtils.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A4EAA7EE24A0B418005D2D1F /* SimulatorUtils */ = {
+		A4EAA7EE24A0B418005D2D1F /* WITUTils */ = {
 			isa = PBXGroup;
 			children = (
 				A4EAA7EF24A0B418005D2D1F /* AppDelegate.swift */,
@@ -73,7 +75,7 @@
 				A4EAA7FC24A0B41A005D2D1F /* SimulatorUtils.entitlements */,
 				A4EAA7F524A0B41A005D2D1F /* Preview Content */,
 			);
-			path = SimulatorUtils;
+			path = WITUTils;
 			sourceTree = "<group>";
 		};
 		A4EAA7F524A0B41A005D2D1F /* Preview Content */ = {
@@ -87,7 +89,7 @@
 		C732007A3898D75DEC46E677 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC4EEA7CF83E71FB2307FBCC /* Pods_SimulatorUtils.framework */,
+				ACED102395BD3904AFD29CFD /* Pods_WITUtils.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -97,6 +99,8 @@
 			children = (
 				7938435DFA0D05674CEE4462 /* Pods-SimulatorUtils.debug.xcconfig */,
 				CE4725C79D252B183C5F9EB4 /* Pods-SimulatorUtils.release.xcconfig */,
+				E17264BEAA2B695A5053C79D /* Pods-WITUtils.debug.xcconfig */,
+				EF90F47A86B8C48B19EE345E /* Pods-WITUtils.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -104,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A4EAA7EB24A0B418005D2D1F /* SimulatorUtils */ = {
+		A4EAA7EB24A0B418005D2D1F /* WITUtils */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A4EAA7FF24A0B41A005D2D1F /* Build configuration list for PBXNativeTarget "SimulatorUtils" */;
+			buildConfigurationList = A4EAA7FF24A0B41A005D2D1F /* Build configuration list for PBXNativeTarget "WITUtils" */;
 			buildPhases = (
 				11B53B00D6998DC8B016B9D6 /* [CP] Check Pods Manifest.lock */,
 				A4EAA7E824A0B418005D2D1F /* Sources */,
@@ -118,9 +122,9 @@
 			);
 			dependencies = (
 			);
-			name = SimulatorUtils;
+			name = WITUtils;
 			productName = SimulatorUtils;
-			productReference = A4EAA7EC24A0B418005D2D1F /* SimulatorUtils.app */;
+			productReference = A4EAA7EC24A0B418005D2D1F /* WITUtils.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -138,7 +142,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A4EAA7E724A0B418005D2D1F /* Build configuration list for PBXProject "SimulatorUtils" */;
+			buildConfigurationList = A4EAA7E724A0B418005D2D1F /* Build configuration list for PBXProject "WITUtils" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -151,7 +155,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A4EAA7EB24A0B418005D2D1F /* SimulatorUtils */,
+				A4EAA7EB24A0B418005D2D1F /* WITUtils */,
 			);
 		};
 /* End PBXProject section */
@@ -185,7 +189,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SimulatorUtils-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-WITUtils-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -198,15 +202,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WITUtils/Pods-WITUtils-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WITUtils/Pods-WITUtils-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WITUtils/Pods-WITUtils-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -351,18 +355,18 @@
 		};
 		A4EAA80024A0B41A005D2D1F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7938435DFA0D05674CEE4462 /* Pods-SimulatorUtils.debug.xcconfig */;
+			baseConfigurationReference = E17264BEAA2B695A5053C79D /* Pods-WITUtils.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SimulatorUtils/SimulatorUtils.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WITUtils/SimulatorUtils.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"SimulatorUtils/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WITUtils/Preview Content\"";
 				DEVELOPMENT_TEAM = 2B47JYQZBD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SimulatorUtils/Info.plist;
+				INFOPLIST_FILE = WITUtils/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -376,18 +380,18 @@
 		};
 		A4EAA80124A0B41A005D2D1F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE4725C79D252B183C5F9EB4 /* Pods-SimulatorUtils.release.xcconfig */;
+			baseConfigurationReference = EF90F47A86B8C48B19EE345E /* Pods-WITUtils.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SimulatorUtils/SimulatorUtils.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WITUtils/SimulatorUtils.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"SimulatorUtils/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "WITUtils/Preview Content\"";
 				DEVELOPMENT_TEAM = 2B47JYQZBD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SimulatorUtils/Info.plist;
+				INFOPLIST_FILE = WITUtils/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -402,7 +406,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A4EAA7E724A0B418005D2D1F /* Build configuration list for PBXProject "SimulatorUtils" */ = {
+		A4EAA7E724A0B418005D2D1F /* Build configuration list for PBXProject "WITUtils" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4EAA7FD24A0B41A005D2D1F /* Debug */,
@@ -411,7 +415,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A4EAA7FF24A0B41A005D2D1F /* Build configuration list for PBXNativeTarget "SimulatorUtils" */ = {
+		A4EAA7FF24A0B41A005D2D1F /* Build configuration list for PBXNativeTarget "WITUtils" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4EAA80024A0B41A005D2D1F /* Debug */,

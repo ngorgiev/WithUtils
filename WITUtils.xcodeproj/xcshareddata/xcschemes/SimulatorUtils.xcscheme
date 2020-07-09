@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A4EAA7EB24A0B418005D2D1F"
-               BuildableName = "SimulatorUtils.app"
-               BlueprintName = "SimulatorUtils"
-               ReferencedContainer = "container:SimulatorUtils.xcodeproj">
+               BuildableName = "WITUtils.app"
+               BlueprintName = "WITUtils"
+               ReferencedContainer = "container:WITUtils.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A4EAA7EB24A0B418005D2D1F"
-            BuildableName = "SimulatorUtils.app"
-            BlueprintName = "SimulatorUtils"
-            ReferencedContainer = "container:SimulatorUtils.xcodeproj">
+            BuildableName = "WITUtils.app"
+            BlueprintName = "WITUtils"
+            ReferencedContainer = "container:WITUtils.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A4EAA7EB24A0B418005D2D1F"
-            BuildableName = "SimulatorUtils.app"
-            BlueprintName = "SimulatorUtils"
-            ReferencedContainer = "container:SimulatorUtils.xcodeproj">
+            BuildableName = "WITUtils.app"
+            BlueprintName = "WITUtils"
+            ReferencedContainer = "container:WITUtils.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_SimulatorUtilsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_SimulatorUtilsVersionString[];
+FOUNDATION_EXPORT double Pods_WITUtilsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_WITUtilsVersionString[];
 
