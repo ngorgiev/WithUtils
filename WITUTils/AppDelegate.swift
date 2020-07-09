@@ -68,7 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         let smscode = json!["sms_verification_code"] as! NSNumber
                         
                         self.copyToClipboard(value: "\(smscode)")
-                        self.showInfoAlert(title: "Sms Code Copied to Clipboard", information: "\(smscode)")
+                        self.showInfoAlert(title: "Sms Code Copied to Clipboard", information: "code: \(smscode)")
                     }
         }
     }
@@ -80,13 +80,40 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Read copied string
 //        NSPasteboard.general.string(forType: .string)
 
-        showInfoAlert(title: "Clear Token", information: "Clearing Token")
-
+        let response = showAlert(title:"Delete User Token", information: "Type your UserID", hasInput: true)
+        
+        if(response as AnyObject !== "" as AnyObject)
+        {
+            AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/debug/user/delete_jwts_and_login_uuid/\(response)", method: .post)
+            .responseJSON { response in
+                debugPrint(response)
+            }.responseData { response in
+                switch response.result {
+                case .success:
+                    print("Validation Successful")
+                    self.showInfoAlert(title: "Clear Token", information: "User Token Deleted")
+                case let .failure(error):
+                    print(error)
+                }
+            }
+        }
     }
     
     @objc func createAssesment() {
         print("Create Assessment")
         
+        AF.request("http://messaging-bot-rest-dev-service.dev.svc.cluster.local:5000/messaging-bot/api/v1#/Message/add_message_messaging_bot_api_v1_message_add_message_post", method: .post)
+        .responseJSON { response in
+            debugPrint(response)
+        }.responseData { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+                self.showInfoAlert(title: "Clear Token", information: "User Token Deleted")
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
     
     @objc func quit() {
@@ -138,3 +165,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
 }
 
+
+struct AppDelegate_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}
