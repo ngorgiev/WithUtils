@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4C1E66324B7AC6400AC5DA5 /* assesment.json in Resources */ = {isa = PBXBuildFile; fileRef = A4C1E66224B7AC6400AC5DA5 /* assesment.json */; };
 		A4EAA7F024A0B418005D2D1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EAA7EF24A0B418005D2D1F /* AppDelegate.swift */; };
 		A4EAA7F224A0B418005D2D1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EAA7F124A0B418005D2D1F /* ContentView.swift */; };
 		A4EAA7F424A0B41A005D2D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4EAA7F324A0B41A005D2D1F /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		7938435DFA0D05674CEE4462 /* Pods-SimulatorUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimulatorUtils.debug.xcconfig"; path = "Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils.debug.xcconfig"; sourceTree = "<group>"; };
+		A4C1E66224B7AC6400AC5DA5 /* assesment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = assesment.json; sourceTree = "<group>"; };
 		A4EAA7EC24A0B418005D2D1F /* WITUtils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WITUtils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4EAA7EF24A0B418005D2D1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4EAA7F124A0B418005D2D1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		A4EAA7EE24A0B418005D2D1F /* WITUTils */ = {
 			isa = PBXGroup;
 			children = (
+				A4C1E66224B7AC6400AC5DA5 /* assesment.json */,
 				A4EAA7EF24A0B418005D2D1F /* AppDelegate.swift */,
 				A4EAA80224A0B53D005D2D1F /* StatusItemController.swift */,
 				A4EAA7F124A0B418005D2D1F /* ContentView.swift */,
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4EAA7FA24A0B41A005D2D1F /* Main.storyboard in Resources */,
+				A4C1E66324B7AC6400AC5DA5 /* assesment.json in Resources */,
 				A4EAA7F724A0B41A005D2D1F /* Preview Assets.xcassets in Resources */,
 				A4EAA7F424A0B41A005D2D1F /* Assets.xcassets in Resources */,
 			);
@@ -387,7 +391,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "WITUtils/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WITUtils/Preview Content\"";
 				DEVELOPMENT_TEAM = 2B47JYQZBD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;

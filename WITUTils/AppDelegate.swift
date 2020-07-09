@@ -13,11 +13,7 @@ import Foundation
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-//    let statusItemController = StatusItemController(title: "WIT Helper")
-    
-    
-     var statusBarItem: NSStatusItem!
-    
+         var statusBarItem: NSStatusItem!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
     // Insert code here to initialize your application
@@ -39,8 +35,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             keyEquivalent: "2")
         
         statusBarMenu.addItem(
-            withTitle: "Create Assesment",
-            action: #selector(AppDelegate.createAssesment),
+            withTitle: "Get User PIN",
+            action: #selector(AppDelegate.getUserPIN),
             keyEquivalent: "3")
         statusBarMenu.addItem(NSMenuItem.separator())
         
@@ -75,11 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc func clearToken() {
         print("clear Token")
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("clear Token", forType: .string)
-        // Read copied string
-//        NSPasteboard.general.string(forType: .string)
-
+    
         let response = showAlert(title:"Delete User Token", information: "Type your UserID", hasInput: true)
         
         if(response as AnyObject !== "" as AnyObject)
@@ -99,21 +91,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    @objc func createAssesment() {
-        print("Create Assessment")
-        
-        AF.request("http://messaging-bot-rest-dev-service.dev.svc.cluster.local:5000/messaging-bot/api/v1#/Message/add_message_messaging_bot_api_v1_message_add_message_post", method: .post)
-        .responseJSON { response in
-            debugPrint(response)
-        }.responseData { response in
-            switch response.result {
-            case .success:
-                print("Validation Successful")
-                self.showInfoAlert(title: "Clear Token", information: "User Token Deleted")
-            case let .failure(error):
-                print(error)
+    @objc func getUserPIN() {
+        print("Get User Pin")
+        let response = showAlert(title:"Get User PIN", information: "Type your UserID", hasInput: true)
+        if(response as AnyObject !== "" as AnyObject)
+        {
+            AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/debug/user/get_pin/\(response)")
+            .responseJSON { response in
+                
+                let jsonData = response.data
+                let json = try? JSONSerialization.jsonObject(with: jsonData!, options: []) as? [String: Any]
+                let pin = json!["user_pin"] as! NSString
+                
+                self.copyToClipboard(value: "\(pin)")
+                self.showInfoAlert(title: "PIN Copied to Clipboard", information: "PIN: \(pin)")
             }
         }
+        
     }
     
     @objc func quit() {
@@ -164,6 +158,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
 }
+
 
 
 struct AppDelegate_Previews: PreviewProvider {
