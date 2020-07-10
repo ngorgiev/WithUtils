@@ -38,8 +38,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             withTitle: "Get User PIN",
             action: #selector(AppDelegate.getUserPIN),
             keyEquivalent: "3")
-        statusBarMenu.addItem(NSMenuItem.separator())
         
+        statusBarMenu.addItem(
+        withTitle: "Unlock Account",
+        action: #selector(AppDelegate.unlockAccount),
+        keyEquivalent: "4")
+        
+        statusBarMenu.addItem(NSMenuItem.separator())
         
         statusBarMenu.addItem(
         withTitle: "Quit",
@@ -107,6 +112,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.showInfoAlert(title: "PIN Copied to Clipboard", information: "PIN: \(pin)")
             }
         }
+    }
+    
+    @objc func unlockAccount() {
+        print("Unlock Account")
+        let response = showAlert(title:"Unlock Account", information: "Type your phone number", hasInput: true)
+        if(response as AnyObject !== "" as AnyObject)
+        {
+            let encoded = response.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
+            let phone = "\(encoded!)"
+            print("escapedString: \(phone)")
+            AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/auth/system_user/unlock_patient_account/\(phone)", method: .post)
+            .responseJSON { response in
+                self.showInfoAlert(title: "Information", information: "Account Unlocked")
+            }
+        }
+        //http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/user/user_apis_apis_user_unlock_patient_account/
+
         
     }
     
