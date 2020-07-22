@@ -13,7 +13,6 @@
 		A4EAA7F424A0B41A005D2D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4EAA7F324A0B41A005D2D1F /* Assets.xcassets */; };
 		A4EAA7F724A0B41A005D2D1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4EAA7F624A0B41A005D2D1F /* Preview Assets.xcassets */; };
 		A4EAA7FA24A0B41A005D2D1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4EAA7F824A0B41A005D2D1F /* Main.storyboard */; };
-		A4EAA80324A0B53D005D2D1F /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EAA80224A0B53D005D2D1F /* StatusItemController.swift */; };
 		DBAB4EF71B495F7DE0BF5903 /* Pods_WITUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACED102395BD3904AFD29CFD /* Pods_WITUtils.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		A4EAA7F924A0B41A005D2D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4EAA7FB24A0B41A005D2D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4EAA7FC24A0B41A005D2D1F /* SimulatorUtils.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimulatorUtils.entitlements; sourceTree = "<group>"; };
-		A4EAA80224A0B53D005D2D1F /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		ACED102395BD3904AFD29CFD /* Pods_WITUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WITUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4725C79D252B183C5F9EB4 /* Pods-SimulatorUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimulatorUtils.release.xcconfig"; path = "Target Support Files/Pods-SimulatorUtils/Pods-SimulatorUtils.release.xcconfig"; sourceTree = "<group>"; };
 		E17264BEAA2B695A5053C79D /* Pods-WITUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WITUtils.debug.xcconfig"; path = "Target Support Files/Pods-WITUtils/Pods-WITUtils.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 			children = (
 				A4C1E66224B7AC6400AC5DA5 /* assesment.json */,
 				A4EAA7EF24A0B418005D2D1F /* AppDelegate.swift */,
-				A4EAA80224A0B53D005D2D1F /* StatusItemController.swift */,
 				A4EAA7F124A0B418005D2D1F /* ContentView.swift */,
 				A4EAA7F324A0B41A005D2D1F /* Assets.xcassets */,
 				A4EAA7F824A0B41A005D2D1F /* Main.storyboard */,
@@ -226,7 +223,6 @@
 			files = (
 				A4EAA7F224A0B418005D2D1F /* ContentView.swift in Sources */,
 				A4EAA7F024A0B418005D2D1F /* AppDelegate.swift in Sources */,
-				A4EAA80324A0B53D005D2D1F /* StatusItemController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

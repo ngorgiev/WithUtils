@@ -13,7 +13,8 @@ import Foundation
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-         var statusBarItem: NSStatusItem!
+    var statusBarItem: NSStatusItem!
+    let defaults = UserDefaults.standard
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
     // Insert code here to initialize your application
@@ -149,17 +150,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         alert.messageText = title
         alert.informativeText =  information
 
-
         let txt = NSTextField(frame: NSRect(x: 0, y: 0, width: 200, height: 24))
-        txt.stringValue = ""
+        txt.stringValue = defaults.string(forKey: "userId") ?? ""
         if(hasInput)
         {
         alert.accessoryView = txt
         }
+
         alert.addButton(withTitle: "OK")
         alert.addButton(withTitle: "Cancel")
         let response: NSApplication.ModalResponse = alert.runModal()
         if (response == NSApplication.ModalResponse.alertFirstButtonReturn) {
+            defaults.set(txt.stringValue, forKey: "userId")
             return txt.stringValue
         }
         return ""

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		qSOqk4ioVDMjipxWggdg6LWAjW4=
+		1v/Bd26cc0HVO59pH2p9kWhL80A=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<data>
-		yaFlExKCgCB+KY59qlnqQ40KTFY=
+		u9m9jHIYTivk1JedgWQELwAc4sg=
 		</data>
 		<key>Resources/assesment.json</key>
 		<data>
@@ -27,7 +27,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			ueum3GYg80s/RdjVVTQgdzzfE7k=
+			xjJq9qUTwdYP+pxKo6VmsTBH5DQ=
 			</data>
 			<key>requirement</key>
 			<string>identifier "org.cocoapods.Alamofire" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: nikolagorgievmkd@gmail.com (Y52UJ87DT8)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
@@ -36,7 +36,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			t80m4YcdE3KbLrujUXulb1E4dIQ6neU8M62RQAVgz40=
+			+e764jFNNQ+fNYAnlxFoFGfZd74TCpT5KcYnhIL7Vhg=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
@@ -50,7 +50,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AXRAXMJDkCwPct5lvnq4CQ3PF/MBmIANqYWjVg/TKTE=
+			ccvLI27AMEVEr0l7sq/hC88y6qb5BLtXa/gMQ3u8GvI=
 			</data>
 		</dict>
 		<key>Resources/assesment.json</key>
