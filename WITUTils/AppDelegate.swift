@@ -10,18 +10,22 @@ import Cocoa
 import SwiftUI
 import Alamofire
 import Foundation
+import PlainPing
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarItem: NSStatusItem!
     let defaults = UserDefaults.standard
+    var timer = Timer()
+    let statusBar = NSStatusBar.system
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
     // Insert code here to initialize your application
-       let statusBar = NSStatusBar.system
+//       let statusBar = NSStatusBar.system
         statusBarItem = statusBar.statusItem(
        withLength: NSStatusItem.squareLength)
        statusBarItem.button?.title = "WIT"
+        
         
        let statusBarMenu = NSMenu(title: "WIT Status Bar Menu")
         
@@ -53,6 +57,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         keyEquivalent: "q")
         
        statusBarItem.menu = statusBarMenu
+        
+       scheduledTimerWithTimeInterval()
+     
+    }
+    
+    func scheduledTimerWithTimeInterval(){
+        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("pinger"), userInfo: nil, repeats: true)
+    }
+    
+    @objc func pinger(){
+        PlainPing.ping("www.google.com", withTimeout: 1.0, completionBlock: { (timeElapsed:Double?, error:Error?) in
+            if let latency = timeElapsed {
+                print("latency (ms): \(latency)")
+                self.statusBarItem.button?.contentTintColor = NSColor(calibratedRed: 0, green: 1, blue: 0, alpha: 1)
+            }
+            
+            if let error = error {
+                print("error: \(error.localizedDescription)")
+                self.statusBarItem.button?.contentTintColor = NSColor(calibratedRed: 1, green: 0, blue: 0, alpha: 1)
+            }
+        })
     }
     
     @objc func getSMS() {

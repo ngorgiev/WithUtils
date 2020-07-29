@@ -6,5 +6,5 @@ target 'WITUtils' do
   use_frameworks!
 pod 'Alamofire', '~> 5.2'
   # Pods for WITUtils
-
+pod "PlainPing"
 end

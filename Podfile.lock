@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (5.2.1)
+  - PlainPing (0.5)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - PlainPing
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - PlainPing
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  PlainPing: 6b248b94d92be7ec0410952d1b09af43b9a39015
 
-PODFILE CHECKSUM: ae30cc52f1f12cb3e0bfd3aef1f236f1894a9acb
+PODFILE CHECKSUM: 619d837298140061ae92b6c072fc58b214f5f00e
 
 COCOAPODS: 1.9.1
