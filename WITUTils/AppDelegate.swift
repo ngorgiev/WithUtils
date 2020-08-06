@@ -18,48 +18,65 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let defaults = UserDefaults.standard
     var timer = Timer()
     let statusBar = NSStatusBar.system
+    let font = NSFont.monospacedDigitSystemFont(ofSize: 9.0, weight: NSFont.Weight.regular)
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-    // Insert code here to initialize your application
-//       let statusBar = NSStatusBar.system
+        // Insert code here to initialize your application
+        //       let statusBar = NSStatusBar.system
         statusBarItem = statusBar.statusItem(
-       withLength: NSStatusItem.squareLength)
-       statusBarItem.button?.title = "WIT"
+            withLength: NSStatusItem.variableLength)
+        statusBarItem.button?.font = font
+        statusBarItem.button?.title = "WithMe"
         
         
-       let statusBarMenu = NSMenu(title: "WIT Status Bar Menu")
+        
+        let statusBarMenu = NSMenu(title: "WIT Status Bar Menu")
         
         statusBarMenu.addItem(
             withTitle: "Get SMS Code",
             action: #selector(AppDelegate.getSMS),
             keyEquivalent: "1")
-
-        statusBarMenu.addItem(
-            withTitle: "Clear User Token",
-            action: #selector(AppDelegate.clearToken),
-            keyEquivalent: "2")
         
         statusBarMenu.addItem(
             withTitle: "Get User PIN",
             action: #selector(AppDelegate.getUserPIN),
+            keyEquivalent: "2")
+        
+        statusBarMenu.addItem(
+            withTitle: "Clear User Token",
+            action: #selector(AppDelegate.clearToken),
             keyEquivalent: "3")
         
         statusBarMenu.addItem(
-        withTitle: "Unlock Account",
-        action: #selector(AppDelegate.unlockAccount),
-        keyEquivalent: "4")
+            withTitle: "Unlock Account",
+            action: #selector(AppDelegate.unlockAccount),
+            keyEquivalent: "4")
+        
+        statusBarMenu.addItem(
+            withTitle: "Soft Delete User",
+            action: #selector(AppDelegate.softDeleteUser),
+            keyEquivalent: "5")
+        
+        statusBarMenu.addItem(
+            withTitle: "Show BarCode",
+            action: #selector(AppDelegate.togglePopover(_:)),
+            keyEquivalent: "q")
         
         statusBarMenu.addItem(NSMenuItem.separator())
         
         statusBarMenu.addItem(
-        withTitle: "Quit",
-        action: #selector(AppDelegate.quit),
-        keyEquivalent: "q")
+            withTitle: "Quit",
+            action: #selector(AppDelegate.quit),
+            keyEquivalent: "q")
         
-       statusBarItem.menu = statusBarMenu
+        statusBarItem.menu = statusBarMenu
         
-       scheduledTimerWithTimeInterval()
-     
+        scheduledTimerWithTimeInterval()
+        
+        let image = BarcodeGenerator.generate(from: "barcode-string",
+                                              descriptor: .code128,
+                                              size: CGSize(width: 800, height: 300))
+        
     }
     
     func scheduledTimerWithTimeInterval(){
@@ -68,14 +85,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func pinger(){
-        PlainPing.ping("www.google.com", withTimeout: 1.0, completionBlock: { (timeElapsed:Double?, error:Error?) in
+        PlainPing.ping("www.apple.com", withTimeout: 1.0, completionBlock: { (timeElapsed:Double?, error:Error?) in
             if let latency = timeElapsed {
-                print("latency (ms): \(latency)")
+                
+                var roundedString = String(format: "%.2f", latency)
+                //                print("latency (ms): \(roundedString)")
+                self.statusBarItem.button?.title = "WithMe\n(\(roundedString)ms)"
                 self.statusBarItem.button?.contentTintColor = NSColor(calibratedRed: 0, green: 1, blue: 0, alpha: 1)
             }
             
             if let error = error {
-                print("error: \(error.localizedDescription)")
+                //                print("error: \(error.localizedDescription)")
+                self.statusBarItem.button?.title = "WithMe\n(OffLine)"
                 self.statusBarItem.button?.contentTintColor = NSColor(calibratedRed: 1, green: 0, blue: 0, alpha: 1)
             }
         })
@@ -88,29 +109,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if(response as AnyObject !== "" as AnyObject)
         {
-        //https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#introduction
-        AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/internal/user/get_sms_code/\(response)")
-                    .responseJSON { response in
-                        let jsonData = response.data
-                        let json = try? JSONSerialization.jsonObject(with: jsonData!, options: []) as? [String: Any]
-                        let smscode = json!["sms_verification_code"] as! NSNumber
-                        
-                        self.copyToClipboard(value: "\(smscode)")
-                        self.showInfoAlert(title: "Sms Code Copied to Clipboard", information: "code: \(smscode)")
-                    }
+            //https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#introduction
+            AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/internal/user/get_sms_code/\(response)")
+                .responseJSON { response in
+                    let jsonData = response.data
+                    let json = try? JSONSerialization.jsonObject(with: jsonData!, options: []) as? [String: Any]
+                    let smscode = json!["sms_verification_code"] as! NSNumber
+                    
+                    self.copyToClipboard(value: "\(smscode)")
+                    self.showInfoAlert(title: "Sms Code Copied to Clipboard", information: "code: \(smscode)")
+            }
         }
     }
-
+    
     @objc func clearToken() {
         print("clear Token")
-    
+        
         let response = showAlert(title:"Delete User Token", information: "Type your UserID", hasInput: true)
         
         if(response as AnyObject !== "" as AnyObject)
         {
             AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/debug/user/delete_jwts_and_login_uuid/\(response)", method: .post)
-            .responseJSON { response in
-                debugPrint(response)
+                .responseJSON { response in
+                    debugPrint(response)
             }.responseData { response in
                 switch response.result {
                 case .success:
@@ -129,14 +150,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if(response as AnyObject !== "" as AnyObject)
         {
             AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/debug/user/get_pin/\(response)")
-            .responseJSON { response in
-                
-                let jsonData = response.data
-                let json = try? JSONSerialization.jsonObject(with: jsonData!, options: []) as? [String: Any]
-                let pin = json!["user_pin"] as! NSString
-                
-                self.copyToClipboard(value: "\(pin)")
-                self.showInfoAlert(title: "PIN Copied to Clipboard", information: "PIN: \(pin)")
+                .responseJSON { response in
+                    
+                    let jsonData = response.data
+                    let json = try? JSONSerialization.jsonObject(with: jsonData!, options: []) as? [String: Any]
+                    let pin = json!["user_pin"] as! NSString
+                    
+                    self.copyToClipboard(value: "\(pin)")
+                    self.showInfoAlert(title: "PIN Copied to Clipboard", information: "PIN: \(pin)")
             }
         }
     }
@@ -150,23 +171,47 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let phone = "\(encoded!)"
             print("escapedString: \(phone)")
             AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/auth/system_user/unlock_patient_account/\(phone)", method: .post)
-            .responseJSON { response in
-                self.showInfoAlert(title: "Information", information: "Account Unlocked")
+                .responseJSON { response in
+                    self.showInfoAlert(title: "Information", information: "Account Unlocked")
             }
         }
         //http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/user/user_apis_apis_user_unlock_patient_account/
-
-        
+    }
+    
+    @objc func softDeleteUser() {
+        print("Soft Delete User")
+        let response = showAlert(title:"Soft Delete User", information: "Type your UserID", hasInput: true)
+        if(response as AnyObject !== "" as AnyObject)
+        {
+            print(response)
+            AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/debug/user/soft_delete_user/\(response)",method: .post)
+                .responseJSON { response in
+                    
+                    self.showInfoAlert(title: "Information", information: "User Deleted")
+            }
+        }
+    }
+    
+    @objc func togglePopover(_ sender: NSStatusItem) {
     }
     
     @objc func quit() {
         print("Quit App")
+        
         NSApplication.shared.terminate(self)
         
     }
     
+    func openUrl() {
+        let url = URL(string: "https://www.google.com")!
+        if NSWorkspace.shared.open(url) {
+            print("default browser was successfully opened")
+            
+        }
+    }
+    
     func applicationWillTerminate(_ aNotification: Notification) {
-    //let Insert code here to tear down your application
+        //let Insert code here to tear down your application
     }
     
     
@@ -175,14 +220,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let alert = NSAlert()
         alert.messageText = title
         alert.informativeText =  information
-
+        
         let txt = NSTextField(frame: NSRect(x: 0, y: 0, width: 200, height: 24))
         txt.stringValue = defaults.string(forKey: "userId") ?? ""
         if(hasInput)
         {
-        alert.accessoryView = txt
+            alert.accessoryView = txt
         }
-
+        
         alert.addButton(withTitle: "OK")
         alert.addButton(withTitle: "Cancel")
         let response: NSApplication.ModalResponse = alert.runModal()
@@ -207,6 +252,40 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSPasteboard.general.setString(value, forType: .string)
     }
     
+}
+
+class BarcodeGenerator {
+    enum Descriptor: String {
+        case code128 = "CICode128BarcodeGenerator"
+        case pdf417 = "CIPDF417BarcodeGenerator"
+        case aztec = "CIAztecCodeGenerator"
+        case qr = "CIQRCodeGenerator"
+    }
+    
+    class func generate(from string: String,
+                        descriptor: Descriptor,
+                        size: CGSize) -> CIImage? {
+        let filterName = descriptor.rawValue
+        
+        guard let data = string.data(using: .ascii),
+            let filter = CIFilter(name: filterName) else {
+                return nil
+        }
+        
+        filter.setValue(data, forKey: "inputMessage")
+        
+        guard let image = filter.outputImage else {
+            return nil
+        }
+        
+        let imageSize = image.extent.size
+        
+        let transform = CGAffineTransform(scaleX: size.width / imageSize.width,
+                                          y: size.height / imageSize.height)
+        let scaledImage = image.transformed(by: transform)
+        
+        return scaledImage
+    }
 }
 
 
