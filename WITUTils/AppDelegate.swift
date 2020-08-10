@@ -18,7 +18,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let defaults = UserDefaults.standard
     var timer = Timer()
     let statusBar = NSStatusBar.system
+    
+    let environment = NSMenuItem()
+    
     let font = NSFont.monospacedDigitSystemFont(ofSize: 9.0, weight: NSFont.Weight.regular)
+    var env = ""
+    
+    var API_DEV_BASE_URL = "http://user-dev-service.dev.svc.cluster.local:5000"
+    var API_TEST_BASE_URL = "http://user-test-service.test.svc.cluster.local:5000"
+    var API_URL = ""
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -29,8 +37,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarItem.button?.title = "WithMe"
         
         
+        env = defaults.string(forKey: "wit_env") ?? "dev"
+        
+        setEnvironment(_env: env)
         
         let statusBarMenu = NSMenu(title: "WIT Status Bar Menu")
+        
+        //        let environment = NSMenuItem()
+        environment.submenu = NSMenu()
+        environment.title = "Environment (\(env))"
+        environment.submenu?.items = [NSMenuItem(title: "Dev", action: #selector(AppDelegate.setDev), keyEquivalent: "d"),NSMenuItem(title: "Test", action: #selector(AppDelegate.setTest), keyEquivalent: "t")]
+        
+        statusBarMenu.addItem(environment)
+        
         
         statusBarMenu.addItem(
             withTitle: "Get SMS Code",
@@ -79,6 +98,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
     
+    @objc func setEnvironment(_env: String){
+        environment.title = "Environment (\(_env))"
+        defaults.set(_env, forKey: "wit_env")
+
+        if(_env == "dev")
+        {
+            API_URL = API_DEV_BASE_URL
+        }
+        else
+        {
+            API_URL = API_TEST_BASE_URL
+        }
+    }
+    
+    @objc func setDev(){
+        //          environment.title = "Environment (dev)"
+        setEnvironment(_env: "dev")
+    }
+    
+    @objc func setTest(){
+        //          environment.title = "Environment (test)"
+        setEnvironment(_env: "test")
+    }
+    
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("pinger"), userInfo: nil, repeats: true)
@@ -110,7 +153,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if(response as AnyObject !== "" as AnyObject)
         {
             //https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#introduction
-            AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/internal/user/get_sms_code/\(response)")
+            AF.request("\(API_URL)/user/api/v1/internal/user/get_sms_code/\(response)")
                 .responseJSON { response in
                     let jsonData = response.data
                     let json = try? JSONSerialization.jsonObject(with: jsonData!, options: []) as? [String: Any]
@@ -129,7 +172,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if(response as AnyObject !== "" as AnyObject)
         {
-            AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/debug/user/delete_jwts_and_login_uuid/\(response)", method: .post)
+            AF.request("\(API_URL)/user/api/v1/debug/user/delete_jwts_and_login_uuid/\(response)", method: .post)
                 .responseJSON { response in
                     debugPrint(response)
             }.responseData { response in
@@ -149,7 +192,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let response = showAlert(title:"Get User PIN", information: "Type your UserID", hasInput: true)
         if(response as AnyObject !== "" as AnyObject)
         {
-            AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/debug/user/get_pin/\(response)")
+            AF.request("\(API_URL)/user/api/v1/debug/user/get_pin/\(response)")
                 .responseJSON { response in
                     
                     let jsonData = response.data
@@ -170,7 +213,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let encoded = response.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
             let phone = "\(encoded!)"
             print("escapedString: \(phone)")
-            AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/auth/system_user/unlock_patient_account/\(phone)", method: .post)
+            AF.request("\(API_URL)/user/api/v1/auth/system_user/unlock_patient_account/\(phone)", method: .post)
                 .responseJSON { response in
                     self.showInfoAlert(title: "Information", information: "Account Unlocked")
             }
@@ -184,7 +227,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if(response as AnyObject !== "" as AnyObject)
         {
             print(response)
-            AF.request("http://user-dev-service.dev.svc.cluster.local:5000/user/api/v1/debug/user/soft_delete_user/\(response)",method: .post)
+            AF.request("\(API_URL)/user/api/v1/debug/user/soft_delete_user/\(response)",method: .post)
                 .responseJSON { response in
                     
                     self.showInfoAlert(title: "Information", information: "User Deleted")

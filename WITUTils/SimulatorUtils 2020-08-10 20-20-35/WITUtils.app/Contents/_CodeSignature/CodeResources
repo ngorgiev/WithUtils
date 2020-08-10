@@ -14,7 +14,7 @@
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<data>
-		fe7kMMZQELYNrB1t1AwZeUpueOM=
+		TQhhVCHCtzFWIyTiOF8/M9Vrgfg=
 		</data>
 		<key>Resources/assesment.json</key>
 		<data>
@@ -27,7 +27,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			bbNGGf2IxTn+kH7zAiILAUxU0s0=
+			T8t8dWeFx8ruSVIOebyUp1fTScU=
 			</data>
 			<key>requirement</key>
 			<string>identifier "org.cocoapods.Alamofire" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: nikolagorgievmkd@gmail.com (Y52UJ87DT8)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
@@ -36,7 +36,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			2YaGKJWHHvpA5pPcbmvNfrHU0Ns=
+			CtoDwWZJ32+navu8pRWNGeVOm40=
 			</data>
 			<key>requirement</key>
 			<string>identifier "org.cocoapods.PlainPing" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: nikolagorgievmkd@gmail.com (Y52UJ87DT8)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
@@ -59,7 +59,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			neXyp/iTlyMCAkkjohasrW+OTFzCnY440V9NNOblzwI=
+			V2PqDhrqzioAP27/ojTTeGF2yQsvodaVKkowgbSV0pk=
 			</data>
 		</dict>
 		<key>Resources/assesment.json</key>
